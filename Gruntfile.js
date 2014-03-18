@@ -141,9 +141,17 @@ module.exports = function(grunt) {
 
   });
 
+  // using SASS Ruby compiler?
   grunt.loadNpmTasks('grunt-sass');
+  // using SASSC compiler?
+  //grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-compress');
 
-  grunt.registerTask('build', ['sass']);
-  grunt.registerTask('default', ['build','watch']);
+  grunt.registerTask('build:dev', ['clean', 'sass:dist', 'uglify', 'copy']);
+  grunt.registerTask('build:production', ['clean', 'sass', 'uglify', 'copy', 'compress']);
+  grunt.registerTask('default', ['build:dev','watch']);
 }
