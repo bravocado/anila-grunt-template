@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     // defining project name
     // please replace all "project_name" with your own project name
     project_name: {
-        js: ['src/js/app.js', 'build/js/app.*.js'],
+        js: ['src/js/app/app.js', 'src/js/app/app.*.js'],
         scss: ['src/scss/style.scss']
     },
 
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
           loadPath: ['build/scss']
         },
         files: {
-          'dist/assets/css/style.min.css': '<%= project_name.scss %>'
+          'dist/css/style.min.css': '<%= project_name.scss %>'
         }
       }
     },
@@ -56,25 +56,33 @@ module.exports = function(grunt) {
     // see : https://github.com/gruntjs/grunt-contrib-copy
     copy: {
       dist: {
-        files: [{
+        files:
+        [
+          {
             cwd: 'src/',
             expand: true,
-            src: 'img/**/*',
+            src: ['img/**/*'],
             dest: 'dist/img/'
           }, {
             cwd: 'src/',
             expand: true,
-            src: 'view/*.{html, php, txt, md}',
+            src: ['view/*.{html, php, txt, md}'],
             dest: 'dist/view/'
           }, {
             cwd: 'src/',
             expand: true,
-            src: 'css/*',
-            dest: 'dist/css/'
+            src: ['css/*'],
+            dest: 'dist/'
+          }, {
+            cwd: 'src/js/min',
+            expand: true,
+            src: ['*'],
+            dest: 'dist/js/'            
           }
-        }]
+        ]
       }
     },
+
 
 
     // watch config
@@ -97,15 +105,12 @@ module.exports = function(grunt) {
         }
       },
       js: {
-        files: 'src/js/*.js',
+        files: 'src/js/app/*.js',
         tasks: ['uglify'],
-        filter: 'isFile',
-        options: {
-          livereload: true
-        }
+        filter: 'isFile'
       },
       js_min: {
-        file: 'src/js/min',
+        files: 'src/js/min/*.js',
         tasks: ['copy'],
         filter: 'isFile',
         options: {
@@ -114,7 +119,7 @@ module.exports = function(grunt) {
       },
       images: {
         files: 'src/img/*',
-        tasks: ['copy']
+        tasks: ['copy'],
         options: {
           livereload: true
         }
