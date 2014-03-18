@@ -1,4 +1,4 @@
-# Anila libsass template
+# Anila grunt template
 
 This is a template to start a project that uses Grunt and libsass!
 
