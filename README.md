@@ -13,7 +13,7 @@ You'll need to have the following items installed before continuing.
 ## Quickstart
 
 ```bash
-git clone https://github.com/bravocado/anila-libsass-template.git
+git clone https://github.com/bravocado/anila-grunt-template.git
 npm install && bower install
 ```
 
