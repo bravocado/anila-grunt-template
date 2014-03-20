@@ -67,7 +67,7 @@ module.exports = function(grunt) {
             cwd: 'src/',
             expand: true,
             src: ['view/*.{html, php, txt, md}'],
-            dest: 'dist/view/'
+            dest: 'dist/'
           }, {
             cwd: 'src/',
             expand: true,
