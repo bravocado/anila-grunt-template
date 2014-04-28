@@ -72,6 +72,11 @@ module.exports = function(grunt) {
           }, {
             cwd: 'src/',
             expand: true,
+            src: ['view/human.txt'],
+            dest: 'dist/'
+          }, {
+            cwd: 'src/',
+            expand: true,
             src: ['css/*'],
             dest: 'dist/'
           }, {
