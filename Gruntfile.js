@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     // defining project name
     // please replace all "project_name" with your own project name
     project_name: {
-        js: ['src/js/app/app.js', 'src/js/app/app.*.js'],
+        js: ['src/js/apps/app.js', 'src/js/apps/app.*.js'],
         scss: ['src/scss/style.scss']
     },
 
@@ -105,7 +105,7 @@ module.exports = function(grunt) {
         }
       },
       js: {
-        files: 'src/js/app/*.js',
+        files: 'src/js/apps/*.js',
         tasks: ['uglify'],
         filter: 'isFile'
       },
@@ -132,7 +132,7 @@ module.exports = function(grunt) {
     compress: {
       dist: {
         options: {
-          archive: 'archive/anila.tar.gz'
+          archive: 'archive/project_name.tar.gz'
         },
         files: [{
           expand: true,
