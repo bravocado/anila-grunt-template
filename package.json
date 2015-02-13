@@ -1,6 +1,10 @@
 {
   "name": "anila-grunt-template",
   "version": "0.0.1",
+  "author": {
+    "name": "Bravocado",
+    "url": "http://blog.bravocado.co/"
+  },
   "devDependencies": {
     "node-sass": "~2.0.1",
     "grunt": "~0.4.5",

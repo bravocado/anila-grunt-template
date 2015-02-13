@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       },
       compressed: {
         options: {
-          includePaths: ['bower_components/anila/sass'],
+          includePaths: ['bower_components/anila/build/sass'],
           outputStyle: 'compressed',
           loadPath: ['build/sass']
         },
