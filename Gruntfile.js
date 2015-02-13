@@ -21,7 +21,7 @@ module.exports = function(grunt) {
           includePaths: ['bower_components/anila/sass']
         },
         files: {
-          'build/css/style.css': 'build/scss/style.scss'
+          'build/css/style.css': 'build/sass/style.scss'
         }
       },
       compressed: {
