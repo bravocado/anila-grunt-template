@@ -1,9 +1,5 @@
 {
   "name": "anila-grunt-template",
-  "author": {
-    "name": "Bravocado",
-    "url": "http://blog.bravocado.co/"
-  },
   "dependencies": {
     "anila": "bravocado/anila"
   },

@@ -11,18 +11,20 @@ You'll need to have the following items installed before continuing.
   * [Bower](http://bower.io): Run `[sudo] npm install -g bower`
 
 ## Quickstart
+  * [Download this starter and unzip it](https://github.com/bravocado/anila-grunt-template/archive/master.zip)
+  * Run `npm install && bower install` to install the latest version of Anila
+	* run `compass compile` to compile or `compass watch` to watch the files.
 
-```bash
-git clone https://github.com/bravocado/anila-grunt-template.git
-npm install && bower install
-```
+## Using Command Line Tools
+	* run `[sudo] gem install anila`
+	* run `anila new [project folder] --grunt`
+	* run `grunt build` to compile it once.
+	* run `grunt` to compile and watch.
+  
 
-While you're working on your project, run:
+## Upgrading
 
-`grunt`
-
-And you're set!
-
-## Directory Strucutre
-
-will release it later!
+If you'd like to upgrade to a newer version of Anila down the road just run:
+	
+	* using NPM : `npm update`
+	* using CLI : `anila update`
