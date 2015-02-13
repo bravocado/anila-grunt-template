@@ -162,7 +162,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
 
-  grunt.registerTask('build:dev', ['clean', 'sass', 'uglify', 'copy']);
+  grunt.registerTask('build', ['clean', 'sass', 'uglify', 'copy']);
   grunt.registerTask('build:production', ['clean', 'sass', 'uglify', 'copy', 'compress']);
   grunt.registerTask('default', ['build:dev','watch']);
 }
