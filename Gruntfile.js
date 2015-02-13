@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          includePaths: ['bower_components/anila/sass']
+          includePaths: ['bower_components/anila/build/sass']
         },
         files: {
           'build/css/style.css': 'build/sass/style.scss'
