@@ -6,8 +6,8 @@ module.exports = function(grunt) {
     // defining project name
     // please replace all "project_name" with your own project name
     project_name: {
-        js: ['src/js/apps/app.js', 'src/js/apps/app.*.js'],
-        scss: ['src/scss/style.scss']
+        js: ['build/js/apps/app.js', 'build/js/apps/app.*.js'],
+        scss: ['build/sass/style.scss']
     },
 
 
@@ -18,17 +18,17 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          includePaths: ['bower_components/anila/scss']
+          includePaths: ['bower_components/anila/sass']
         },
         files: {
-          'src/css/style.css': 'src/scss/style.scss'
+          'build/css/style.css': 'build/scss/style.scss'
         }
       },
       compressed: {
         options: {
-          includePaths: ['bower_components/anila/scss'],
+          includePaths: ['bower_components/anila/sass'],
           outputStyle: 'compressed',
-          loadPath: ['build/scss']
+          loadPath: ['build/sass']
         },
         files: {
           'dist/css/style.min.css': '<%= project_name.scss %>'
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'src/js/min/app.min.js': ['<%= project_name.js %>']
+          'build/js/min/app.min.js': ['<%= project_name.js %>']
         }
       }
     },
@@ -60,27 +60,27 @@ module.exports = function(grunt) {
         files:
         [
           {
-            cwd: 'src/',
+            cwd: 'build/',
             expand: true,
             src: ['img/**/*'],
             dest: 'dist/img/'
           }, {
-            cwd: 'src/',
+            cwd: 'build/',
             expand: true,
             src: ['view/*.{html, php, txt, md}'],
             dest: 'dist/'
           }, {
-            cwd: 'src/',
+            cwd: 'build/',
             expand: true,
             src: ['view/human.txt'],
             dest: 'dist/'
           }, {
-            cwd: 'src/',
+            cwd: 'build/',
             expand: true,
             src: ['css/*'],
             dest: 'dist/'
           }, {
-            cwd: 'src/js/min',
+            cwd: 'build/js/min',
             expand: true,
             src: ['*'],
             dest: 'dist/js/'            
@@ -97,26 +97,26 @@ module.exports = function(grunt) {
       grunt: { files: ['Gruntfile.js'] },
 
       sass: {
-        files: 'src/scss/**/*.scss',
+        files: 'build/scss/**/*.scss',
         tasks: ['sass'],
         options: {
           livereload: true
         }
       },
       view: {
-        files: 'src/view',
+        files: 'build/view',
         tasks: ['copy'],
         options: {
           livereload : true
         }
       },
       js: {
-        files: 'src/js/apps/*.js',
+        files: 'build/js/apps/*.js',
         tasks: ['uglify'],
         filter: 'isFile'
       },
       js_min: {
-        files: 'src/js/min/*.js',
+        files: 'build/js/min/*.js',
         tasks: ['copy'],
         filter: 'isFile',
         options: {
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
         }
       },
       images: {
-        files: 'src/img/*',
+        files: 'build/img/*',
         tasks: ['copy'],
         options: {
           livereload: true

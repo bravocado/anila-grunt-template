@@ -1,7 +1,7 @@
 {
-  "name": "anila-libsass-template",
+  "name": "anila-grunt-template",
   "dependencies": {
-    "anila": "bravocado/bower-anila"
+    "anila": "bravocado/anila"
   },
   "private": true
 }
