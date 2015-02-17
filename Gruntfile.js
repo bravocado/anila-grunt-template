@@ -48,6 +48,29 @@ module.exports = function(grunt) {
     },
 
 
+    // templates config
+    // using jade template engine
+    // see : https://github.com/gruntjs/grunt-contrib-jade
+    jade: {
+      compile: {
+        options: {
+          data: function(dest, src) {
+            // Return an object of data to pass to templates
+            return require('./build/templates/data/templates.json');
+          },
+          pretty: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'build/templates', // Src matches are relative to this path.
+          src: ['*.jade'], // Actual pattern(s) to match.
+          dest: 'dist', // Destination path prefix.
+          ext: '.html', // Dest filepaths will have this extension.
+        }]
+      }
+    },
+
+
     // clean config
     // see : https://github.com/gruntjs/grunt-contrib-clean
     clean: ['dist/'],
@@ -67,12 +90,7 @@ module.exports = function(grunt) {
           }, {
             cwd: 'build/',
             expand: true,
-            src: ['view/*.{html, php, txt, md}'],
-            dest: 'dist/'
-          }, {
-            cwd: 'build/',
-            expand: true,
-            src: ['view/human.txt'],
+            src: ['templates/human.txt'],
             dest: 'dist/'
           }, {
             cwd: 'build/',
@@ -104,8 +122,8 @@ module.exports = function(grunt) {
         }
       },
       view: {
-        files: 'build/view',
-        tasks: ['copy'],
+        files: 'build/templates',
+        tasks: ['templates'],
         options: {
           livereload : true
         }
@@ -161,8 +179,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-jade');
 
-  grunt.registerTask('build', ['clean', 'sass', 'uglify', 'copy']);
-  grunt.registerTask('build:production', ['clean', 'sass', 'uglify', 'copy', 'compress']);
+  grunt.registerTask('templates', ['jade']);
+  grunt.registerTask('build', ['clean', 'sass', 'templates', 'uglify', 'copy']);
+  grunt.registerTask('build:production', ['clean', 'sass', 'templates', 'uglify', 'copy', 'compress']);
   grunt.registerTask('default', ['build','watch']);
 }

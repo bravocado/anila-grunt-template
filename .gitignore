@@ -44,6 +44,7 @@ Thumbs.db
 /.sass-cache/
 /bower_components/*
 node_modules/*
+dist/**/*
 
 # Necessary #
 ######################
