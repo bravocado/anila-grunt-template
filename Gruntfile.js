@@ -164,5 +164,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', ['clean', 'sass', 'uglify', 'copy']);
   grunt.registerTask('build:production', ['clean', 'sass', 'uglify', 'copy', 'compress']);
-  grunt.registerTask('default', ['build:dev','watch']);
+  grunt.registerTask('default', ['build','watch']);
 }
