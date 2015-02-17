@@ -88,9 +88,9 @@ module.exports = function(grunt) {
             src: ['img/**/*'],
             dest: 'dist/img/'
           }, {
-            cwd: 'build/',
+            cwd: 'build/templates/',
             expand: true,
-            src: ['templates/human.txt'],
+            src: ['human.txt'],
             dest: 'dist/'
           }, {
             cwd: 'build/',
